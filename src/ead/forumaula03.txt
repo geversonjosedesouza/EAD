@@ -1,0 +1,301 @@
+//Classe Animal
+package aula03;
+
+/**
+ *
+ * @author geverson
+ */
+public class Animal {
+
+    private int codigo;
+    private String nome;
+    private String raca;
+    private String tipo;
+    private int idade;
+    private String cor;
+    private String sexo;
+    private Double peso;
+
+    public Animal() {
+    }
+
+    public Animal(int codigo, String nome, String raca, String tipo, int idade, String cor, String sexo, Double peso) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.raca = raca;
+        this.tipo = tipo;
+        this.idade = idade;
+        this.cor = cor;
+        this.sexo = sexo;
+        this.peso = peso;
+    }
+    //gets e sets
+}
+
+//Classe Cliente
+package aula03;
+
+import java.util.Date;
+
+/**
+ *
+ * @author geverson
+ */
+public class Cliente {
+
+    private int codigo;
+    private String nome;
+    private String cpf;
+    private Date dataNascimento;
+    private Animal animal;
+
+    public Cliente() {
+    }
+
+    public Cliente(int codigo, String nome, String cpf, Date dataNascimento, Animal animal) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.animal = animal;
+    }
+
+    //gets e sets
+
+}
+
+//Classe Consulta
+package aula03;
+
+import java.util.Date;
+
+/**
+ *
+ * @author geverson
+ */
+public class Consulta {
+
+    private int codigo;
+    private Funcionario funcionario;
+    private Cliente cliente;
+    private Animal animal;
+    private MedicoVeterinario veterinario;
+    private String sintomas;
+    private Date dataUltimaConsulta;
+    private boolean exames;
+
+    public Consulta() {
+    }
+
+    public Consulta(int codigo, Funcionario funcionario, Cliente cliente, Animal animal, MedicoVeterinario veterinario, String sintomas, Date dataUltimaConsulta, boolean  exames) {
+        this.codigo = codigo;
+        this.funcionario = funcionario;
+        this.cliente = cliente;
+        this.animal = animal;
+        this.veterinario = veterinario;
+        this.sintomas = sintomas;
+        this.dataUltimaConsulta = dataUltimaConsulta;
+        this.exames = exames;
+    }
+
+    //gets e sets
+}
+
+//Classe Funcionario
+package aula03;
+
+import java.util.Date;
+
+/**
+ *
+ * @author geverson
+ */
+public class Funcionario {
+
+    private int codigo;
+    private String nome;
+    private Date dataAdmissao;
+    private Date dataNascimento;
+    private String cargo;
+
+    public Funcionario() {
+    }
+
+    public Funcionario(int codigo, String nome, Date dataAdmissao, Date dataNascimento, String cargo) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.dataAdmissao = dataAdmissao;
+        this.dataNascimento = dataNascimento;
+        this.cargo = cargo;
+    }
+    
+    //gets e sets
+
+}
+
+//Classe MedicoVeterinário
+package aula03;
+
+import java.util.Date;
+
+/**
+ *
+ * @author geverson
+ */
+public class MedicoVeterinario {
+
+    private int registro;
+    private String nome;
+    private String especialidade;
+    private Date dataNascimento;
+
+    public MedicoVeterinario() {
+    }
+
+    public MedicoVeterinario(int registro, String nome, String especialidade, Date dataNascimento) {
+        this.registro = registro;
+        this.nome = nome;
+        this.especialidade = especialidade;
+        this.dataNascimento = dataNascimento;
+    }
+
+    //gets e sets
+}
+
+//Classe Atendimento
+package aula03;
+
+import java.sql.Date;
+import java.util.Scanner;
+
+/**
+ *
+ * @author geverson
+ */
+public class Atendimento {
+
+    public static void main(String[] args) {
+        Animal novoAnimal = cadastrarAnimal();
+        Cliente novoCliente = cadastrarCliente(novoAnimal);
+        Funcionario novoFuncionario = cadastrarFuncionario();
+        MedicoVeterinario novoVeterinario = cadastrarVeterinario();
+        cadastrarConsulta(novoCliente, novoFuncionario, novoVeterinario);
+    }
+
+    private static Animal cadastrarAnimal() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Código: ");
+        int codigo = scanner.nextInt();
+        System.out.println("Nome: ");
+        String nome = scanner.next();
+        System.out.println("Raça: ");
+        String raca = scanner.next();
+        System.out.println("Tipo: ");
+        String tipo = scanner.next();
+        System.out.println("Idade: ");
+        int idade = scanner.nextInt();
+        System.out.println("Cor: ");
+        String cor = scanner.next();
+        System.out.println("Sexo: ");
+        String sexo = scanner.next();
+        System.out.println("Peso: ");
+        Double peso = scanner.nextDouble();
+        return new Animal(codigo, nome, raca, tipo, idade, cor, sexo, peso);
+    }
+
+    private static Animal atualizarAnimal(int codigo) {
+        Animal atualizar = new Animal();
+        Scanner scanner = new Scanner(System.in);
+        atualizar.setCodigo(codigo);
+        System.out.println("Nome: ");
+        atualizar.setNome(scanner.next());
+        System.out.println("Raça: ");
+        atualizar.setRaca(scanner.next());
+        System.out.println("Tipo: ");
+        atualizar.setTipo(scanner.next());
+        System.out.println("Idade: ");
+        atualizar.setIdade(scanner.nextInt());
+        System.out.println("Cor: ");
+        atualizar.setCor(scanner.next());
+        System.out.println("Sexo: ");
+        atualizar.setSexo(scanner.next());
+        System.out.println("Peso: ");
+        atualizar.setPeso(scanner.nextDouble());
+        return atualizar;
+    }
+
+    private static Cliente cadastrarCliente(Animal animal) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Código: ");
+        int codigo = scanner.nextInt();
+        System.out.println("Nome: ");
+        String nome = scanner.next();
+        System.out.println("CPF: ");
+        String cpf = scanner.next();
+        System.out.println("Data Nascimento: ");
+        String dataNascimento = scanner.next();
+        return new Cliente(codigo, nome, cpf, Date.valueOf(dataNascimento), animal);
+    }
+
+    private static Cliente AtualizarCliente(int codigo) {
+        Cliente atualizar = new Cliente();
+        Scanner scanner = new Scanner(System.in);
+        atualizar.setCodigo(codigo);
+        System.out.println("Nome: ");
+        atualizar.setNome(scanner.next());
+        System.out.println("CPF: ");
+        atualizar.setCpf(scanner.next());
+        System.out.println("Data Nascimento: ");
+        atualizar.setDataNascimento(Date.valueOf(scanner.next()));
+        return atualizar;
+    }
+
+    private static Funcionario cadastrarFuncionario() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Código: ");
+        int codigo = scanner.nextInt();
+        System.out.println("Nome: ");
+        String nome = scanner.next();
+        System.out.println("Data Admissão: ");
+        String dataAdmissao = scanner.next();
+        System.out.println("Data Nascimento: ");
+        String dataNascimento = scanner.next();
+        System.out.println("Cargo: ");
+        String cargo = scanner.next();
+        return new Funcionario(codigo, nome, Date.valueOf(dataAdmissao), Date.valueOf(dataNascimento), cargo);
+    }
+
+    private static MedicoVeterinario cadastrarVeterinario() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Código de Registro: ");
+        int registro = scanner.nextInt();
+        System.out.println("Nome: ");
+        String nome = scanner.next();
+        System.out.println("Especialidade: ");
+        String especialidade = scanner.next();
+        System.out.println("Data Nascimento: ");
+        String dataNascimento = scanner.next();
+        return new MedicoVeterinario(registro, nome, especialidade, Date.valueOf(dataNascimento));
+    }
+
+    private static Consulta cadastrarConsulta(Cliente cliente, Funcionario funcionario, MedicoVeterinario veterinario) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Código: ");
+        int codigo = scanner.nextInt();
+        System.out.println("Sintomas: ");
+        String sintomas = scanner.next();
+        System.out.println("Data Última Consulta: ");
+        String dataUltimaConsulta = scanner.next();
+        System.out.println("Pecisa de Exames: S ou N");
+        String exame = scanner.next();
+        boolean exames;
+        if (exame.equals("S")) {
+            exames = true;
+        } else {
+            exames = false;
+        }
+        return new Consulta(codigo, funcionario, cliente, cliente.getAnimal(), veterinario,
+                sintomas, Date.valueOf(dataUltimaConsulta), exames);
+    }
+}
+
