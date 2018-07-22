@@ -1,0 +1,12 @@
+Para este fórum, leia o seguinte relato e responda ao que se pede, buscando aplicar o que aprendeu na aula.
+“Olá! Estou trabalhando na manutenção de um sistema em Java.
+O sistema possui suporte para apenas um tipo de usuário que, no caso, é o usuário padrão.
+Recebi a tarefa de implementar as modificações necessárias para que o sistema funcione também com um usuário do tipo Administrador.
+Tenho dúvidas a respeito de como implementar essa tarefa causando o menor impacto possível no sistema.
+Teria que manipular nas classes existentes ou criar alguma nova?
+Existiria outra forma de solucionar meu problema sem utilizar herança e sem a necessidade de criar uma nova classe?
+Mas, caso eu utilize a herança, qual o impacto dessa decisão na minha aplicação?
+Utilizar herança afetará na conexão entre as classes envolvidas?
+Espero que possam me ajudar nessa tarefa, pois o tempo para completá-la é curto.
+Desde já, agradeço pela atenção!”
+Bom estudo!
