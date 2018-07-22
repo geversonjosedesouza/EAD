@@ -17,4 +17,6 @@ public class UsuarioAdministrador extends UsuarioPadrao {
         super(codigo, nome, senha, dataCadastro);
     }
 
+    public void acesso() {
+    }
 }

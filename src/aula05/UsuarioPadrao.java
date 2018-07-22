@@ -24,5 +24,5 @@ public class UsuarioPadrao {
         this.senha = senha;
         this.dataCadastro = dataCadastro;
     }
-
+public void acesso(){}
 }
