@@ -1,0 +1,1 @@
+Boa tarde a todos, bom fiz umas pesquisas aqui na internet e analisei que essa nova funcionalidade do java funciona da seguinte forma. Quando fazemos a implementação de uma interface com métodos Default não precisamos modificar toda nossa estrutura, pois já que as versões anteriores do java nos obrigava a fazer toda a implementação.

@@ -9,7 +9,16 @@ package aula06;
  *
  * @author geverson
  */
-public interface Desenhavel {
+public class Vaca implements Animal {
 
-    public abstract void desenhar();
+    @Override
+    public void andar() {
+        System.out.println("Vaca andando...");
+    }
+
+    @Override
+    public void parar() {
+        System.out.println("Vaca parando...");        
+    }
+
 }
